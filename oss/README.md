@@ -1,5 +1,7 @@
 #### Set up
-Copy this entire directory into your project's root (the root is where existing files will be searched for and new ones generated). Make sure to delete this directory when you are done with it so it doesn't accidentally get added to your project.
+Copy this entire directory into your project's root (the root is where existing files will be searched for and new ones generated).
+
+[cd into root]
 
 Make sure your repo is up to date so that there are no conflicts
 
@@ -24,6 +26,8 @@ This script will check out each branch in your repo and do the following:
   * Prepend a licensing header using a file-type appropriate comment (for HTML, CSS, and JS files)
 * Stage these changes and commit them
 
+Check that there are no errors in the terminal.
+
 You can run the script as many times as you need (e.g. it won't prepend headers to files that already have them).
 
 If you need to undo everything for some reason, before you push, use
@@ -44,10 +48,14 @@ This script will:
 * Copy the README.md file in your master branch
 * Overwrite the README's in all branches with the copy (if a README doesn't exist in a branch, it will be created)
 
+## Remove the tool
+Make sure to delete this directory when you are done with it so it doesn't accidentally get added to your project.
+
 #### That's it
 Then you can push these changes
 
 `$ git push --all`
+
 
 Feel free to add suggestions. The script is not at all elegant but it was my first time with bash and we are on a schedule ;)
 dscales@google.com

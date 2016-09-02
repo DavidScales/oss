@@ -1,7 +1,7 @@
 #!/bin/bash
 
 headerFile="oss/files/header.txt"
-licenseFile="oss/files/LICENSE.md"
+licenseFile="oss/files/LICENSE"
 contributingFile="oss/files/CONTRIBUTING.md"
 
 # addHeader openComment closeComment
@@ -18,9 +18,8 @@ function addHeader {
 function addHeadersToFiles {
   # Get all html, css, js files, ignoring node_modules directory
   for file in $(find -E . -type f -not -path "*node_modules*" -not -path "*oss*" -regex '.+\.(html|js|css)$'); do
-    # BETTER: Don't hardcode "Copyright...", instead, dynamically read from header.txt
-    if grep -q "Copyright 2016 Google Inc" $file; then
-      echo $file already has header
+    if grep -q "Copyright" $file; then
+      echo $file already has copyright header
     elif [ ${file: -4} == ".css" ] || [ ${file: -3} == ".js" ]; then
       addHeader "/*" "*/"
       echo Staging $file
@@ -35,12 +34,18 @@ function addHeadersToFiles {
 
 function addLicense {
   if [ -e LICENSE.md ]; then
-    echo A LICENSE.md file already exists, staging
+    echo Converting LICENSE.md to LICENSE
+    mv LICENSE.md LICENSE
+    echo Staging LICENSE
+    git add LICENSE
     git add LICENSE.md
+  elif [ -e LICENSE ]; then
+    echo A LICENSE file already exists, staging
+    git add LICENSE
   else
-    echo Adding and staging LICENSE.md
-    cp $licenseFile LICENSE.md
-    git add LICENSE.md
+    echo Adding and staging LICENSE
+    cp $licenseFile LICENSE
+    git add LICENSE
   fi
 }
 

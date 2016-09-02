@@ -1,6 +1,7 @@
 #!/bin/bash
 
 temp="oss/files/temp.md"
+headerFile="oss/files/header.txt"
 
 # Grab README from master branch and store in a temp file
 # BETTER: Git discourages "Porcelain" commands, check out Git "plumbing"
@@ -10,6 +11,11 @@ for branch in $(git branch | tr -d '*'); do
       if [ -e README.md ]; then
         echo Copying README.md
         cat README.md > $temp
+        echo >> $temp
+        echo >> $temp
+        echo "## License" >> $temp
+        echo >> $temp
+        cat $headerFile >> $temp
       else
         echo Warning: did not find README in master. Need README in master to copy. Add it.
         exit 1
