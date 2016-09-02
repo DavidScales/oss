@@ -40,8 +40,8 @@ for branch in $(git branch | tr -d '*'); do
     fi
     cat $temp > README.md
     # Can add disclaimer:
-    # echo >> README.md
-    # echo This is not an official Google product. >> README.md
+    echo >> README.md
+    echo This is not an official Google product. >> README.md
     git add README.md
     echo Commiting changes to $branch
     git commit -m "Doc: update/add README"

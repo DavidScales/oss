@@ -9,6 +9,6 @@ echo Pulling all remote branches
 git pull --all
 
 # ./oss/scrub.sh
-./oss/delete_DS_store.sh
-./oss/headers.sh
-./oss/readme.sh
+# ./oss/delete_DS_store.sh
+# ./oss/headers.sh
+# ./oss/readme.sh
