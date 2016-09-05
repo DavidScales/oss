@@ -12,3 +12,4 @@ git pull --all
 # ./oss/delete_DS_store.sh
 # ./oss/headers.sh
 # ./oss/readme.sh
+./oss/remove_nodes.sh
