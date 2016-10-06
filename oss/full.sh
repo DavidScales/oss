@@ -5,6 +5,12 @@ echo
 git reset --hard
 
 echo
+echo
+echo Pulling all current branches
+echo
+git pull --all
+
+echo
 echo Tracking all remote branches
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 
