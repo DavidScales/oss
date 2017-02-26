@@ -58,4 +58,3 @@ Then you can push these changes
 
 
 Feel free to add suggestions. The script is not at all elegant but it was my first time with bash and we are on a schedule ;)
-dscales@google.com
